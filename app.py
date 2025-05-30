@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-from dotenv import load_dotenv
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.text_splitter import CharacterTextSplitter
@@ -9,8 +8,8 @@ from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
 
 # Load API key
-load_dotenv()
-openai_api_key = os.getenv("OPENAI_API_KEY")
+import streamlit as st
+openai_api_key = st.secrets("OPENAI_API_KEY")
 
 # Load Labour Law content
 @st.cache_resource
